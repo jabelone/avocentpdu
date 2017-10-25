@@ -19,51 +19,50 @@ It’s super easy. First, include the module like so
 
     import avocentpdu
 
-    then initialise an instance of the PDU class
+then initialise an instance of the PDU class
 
-    .. code:: python
+.. code:: python
 
-     import avocentpdu
-         pdu = avocentpdu.PDU("pdu_username", "pdu_password", "https://192.168.0.1")
+ import avocentpdu
+ pdu = avocentpdu.PDU("pdu_username", "pdu_password", "https://192.168.0.1")
 
-         and finally make a function call to ``switch_outlet()``
+and finally make a function call to ``switch_outlet()``
 
-         .. code:: python
+.. code:: python
 
-          import avocentpdu
-              pdu = avocentpdu.PDU("pdu_username", "pdu_password", "https://192.168.0.1")
-                  pdu.switch_outlet(1, 1)
+    import avocentpdu
+    pdu = avocentpdu.PDU("pdu_username", "pdu_password", "https://192.168.0.1")
+    pdu.switch_outlet(1, 1)
 
-                  Reference
-                  ---------
+Reference
+---------
 
-                  PDU(string [username], string [password], string [protocol:ip])
-                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+PDU(string [username], string [password], string [protocol:ip])
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-                  When you create a new instance you should supply it with the username,
-                  password and protocol/IP address of the webserver running on the PDU
-                  box.
+When you create a new instance you should supply it with the username,
+password and protocol/IP address of the webserver running on the PDU
+box.
 
-                  Example:
+Example:
 
-                  .. code:: python
+.. code:: python
 
-                   pdu = avocentpdu.PDU("jabelone", "1234", "https://192.168.0.99")
+    pdu = avocentpdu.PDU("jabelone", "1234", "https://192.168.0.99")
 
-                   switch\_outlet(string [outlet\_number], boolean [state])
-                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+switch\_outlet(string [outlet\_number], boolean [state])
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-                   When you toggle an outlet you must specify the outlet number (as written
-                   on the PDU) and a state. The state should be either ``True`` for on or
-                   ``False`` for off. It will send the http requests out even if it’s
-                   already in the requested state so don’t spam it. Or do. ``¯\_(ツ)_/¯``
+When you toggle an outlet you must specify the outlet number (as written
+on the PDU) and a state. The state should be either ``True`` for on or
+``False`` for off. It will send the http requests out even if it’s
+already in the requested state so don’t spam it. Or do. ``¯\_(ツ)_/¯``
 
-                   Example:
+Example:
 
-                   .. code:: python
+.. code:: python
 
-                    # Turn outlet 1 off
-                        pdu.switch_outlet(1, 0)
-
-                            # Turn outlet 13 on
-                                pdu.switch_outlet(13, 1)
+    # Turn outlet 1 off
+    pdu.switch_outlet(1, 0)
+    # Turn outlet 13 on
+    pdu.switch_outlet(13, 1)
