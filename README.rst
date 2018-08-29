@@ -6,6 +6,11 @@ A python module that allows switching outlets on/off on an Avocent PDU
 
 Installation
 ------------
+With Pip:
+
+``pip install avocentpdu``
+
+Manually:
 
 Just drop the ``avocentpdu.py`` file into the same folder as the python
 file you’re calling it from.
