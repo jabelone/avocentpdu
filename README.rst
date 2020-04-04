@@ -36,8 +36,8 @@ and finally make a function call to ``switch_outlet()``
 .. code:: python
 
     import avocentpdu
-    pdu = avocentpdu.PDU("pdu_username", "pdu_password", "JabelonePDU", "https://192.168.0.1")
-    pdu.switch_outlet(1, 1)
+    with avocentpdu.PDU("pdu_username", "pdu_password", "JabelonePDU", "https://192.168.0.1") as pdu:
+        pdu.switch_outlet(1, 1)
 
 Reference
 ---------
