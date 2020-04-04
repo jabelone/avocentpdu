@@ -2,7 +2,7 @@ avocentpdu
 ==========
 
 A python module that allows switching outlets on/off on an Avocent PDU
-(PM3012V, may work with others)
+(PM3012V, PM3009H, may work with others)
 
 Installation
 ------------
@@ -12,7 +12,7 @@ With Pip:
 
 Manually:
 
-Just drop the ``avocentpdu.py`` file into the same folder as the python
+Just drop the ``pdu.py`` file into the same folder as the python
 file you’re calling it from.
 
 Usage
@@ -22,21 +22,21 @@ It’s super easy. First, include the module like so
 
 .. code:: python
 
-    import avocentpdu
+    import pdu
 
 then initialise an instance of the PDU class
 
 .. code:: python
 
- import avocentpdu
- pdu = avocentpdu.PDU("pdu_username", "pdu_password", "JabelonePDU", "https://192.168.0.1")
+ import pdu
+ pdu = pdu.PDU("pdu_username", "pdu_password", "JabelonePDU", "https://192.168.0.1")
 
 and finally make a function call to ``switch_outlet()``
 
 .. code:: python
 
-    import avocentpdu
-    with avocentpdu.PDU("pdu_username", "pdu_password", "JabelonePDU", "https://192.168.0.1") as pdu:
+    import pdu
+    with pdu.PDU("pdu_username", "pdu_password", "JabelonePDU", "https://192.168.0.1") as pdu:
         pdu.switch_outlet(1, 1)
 
 Reference
@@ -53,7 +53,7 @@ Example:
 
 .. code:: python
 
-    pdu = avocentpdu.PDU("jabelone", "1234", "JabelonePDU", "https://192.168.0.99")
+    pdu = pdu.PDU("jabelone", "1234", "JabelonePDU", "https://192.168.0.99")
 
 switch\_outlet(string [outlet\_number], boolean [state])
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
