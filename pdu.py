@@ -17,12 +17,14 @@ class PDU:
     endpoint = "/appliance/avtrans"
     username = ""
     password = ""
+    pduid = ""
     s = Session()
     sid = 'none'
 
-    def __init__(self, username, password, ip=ip):
+    def __init__(self, username, password, pduid, ip=ip):
         self.username = username
         self.password = password
+        self.pduid = pduid
         self.ip = ip
         self.SSL_Verify = False
 
@@ -48,13 +50,13 @@ class PDU:
     def switch_outlet(self, outlet_num, state):
         on_body = '<avtrans><sid>{}</sid><action>targPowerOn</action><agents><src>wmi</src><dest>controller</dest>' \
                   '</agents><paths><path>units.topology</path></paths><payload><section structure="table" ' \
-                  'id="topologyTable"><array id="pdu.JabelonePDU.{}"></array></section></payload>' \
-                  '</avtrans>'.format(self.sid, outlet_num)
+                  'id="topologyTable"><array id="pdu.{}.{}"></array></section></payload>' \
+                  '</avtrans>'.format(self.sid, self.pduid, outlet_num)
 
         off_body = '<avtrans><sid>{}</sid><action>targPowerOff</action><agents><src>wmi</src><dest>controller</dest>' \
                    '</agents><paths><path>units.topology</path></paths><payload><section structure="table" ' \
-                   'id="topologyTable"><array id="pdu.JabelonePDU.{}"></array></section></payload>' \
-                   '</avtrans>'.format(self.sid, outlet_num)
+                   'id="topologyTable"><array id="pdu.{}.{}"></array></section></payload>' \
+                   '</avtrans>'.format(self.sid, self.pduid, outlet_num)
 
         if state:
             resp = self.s.post(self.ip + self.endpoint, data=on_body, verify=self.SSL_Verify)

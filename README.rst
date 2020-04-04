@@ -29,14 +29,14 @@ then initialise an instance of the PDU class
 .. code:: python
 
  import avocentpdu
- pdu = avocentpdu.PDU("pdu_username", "pdu_password", "https://192.168.0.1")
+ pdu = avocentpdu.PDU("pdu_username", "pdu_password", "JabelonePDU", "https://192.168.0.1")
 
 and finally make a function call to ``switch_outlet()``
 
 .. code:: python
 
     import avocentpdu
-    pdu = avocentpdu.PDU("pdu_username", "pdu_password", "https://192.168.0.1")
+    pdu = avocentpdu.PDU("pdu_username", "pdu_password", "JabelonePDU", "https://192.168.0.1")
     pdu.switch_outlet(1, 1)
 
 Reference
@@ -53,7 +53,7 @@ Example:
 
 .. code:: python
 
-    pdu = avocentpdu.PDU("jabelone", "1234", "https://192.168.0.99")
+    pdu = avocentpdu.PDU("jabelone", "1234", "JabelonePDU", "https://192.168.0.99")
 
 switch\_outlet(string [outlet\_number], boolean [state])
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
